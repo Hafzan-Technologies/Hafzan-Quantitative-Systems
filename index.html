@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="the Hafzan Quantitative Systems — a curated collection of original financial models and formulas created by Amaanullah Bhatti (Hafzan Osmanoğlu). This site is designed to empower startup founders, venture capitalists, private equity professionals, and financial analysts with next-generation tools that bridge theory and practice.">
+  <title>Hafzan Quantitative Systems</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Merriweather", serif;
+      font-weight: 300;
+      font-style: normal;
+      color: #2d2d2d;
+      background-color: #f7f7f7;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: #000; /* Professional accent color */
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #000000; /* Darker hover effect */
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #FFFFFF;
+      padding: 20px 10%;
+      box-shadow: 0 2px 5px #018aa4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #018aa4; /* JPMorgan’s dark blue */
+    }
+    nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul li {
+  padding: 10px;
+}
+
+nav ul li a {
+  color: #2d2d2d;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.menu-icon {
+  display: none; /* Initially hide on larger screens */
+  font-size: 2rem; /* Increase the size */
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show on smaller screens */
+  }
+
+  nav ul {
+    display: none; /* Hide the navigation links */
+  }
+
+  nav ul.show-menu {
+    display: block; /* Show the menu when active */
+    position: absolute;
+    top: 60px; /* Position below the header */
+    left: 0;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+  }
+
+  nav ul li {
+    margin: 10px 0; /* Adjust spacing for mobile */
+  }
+}
+
+
+
+
+    /* Hero Banner */
+    .banner {
+      background: url('') no-repeat center center/cover;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      background-color: #00a2ba;
+      background-blend-mode: multiply;
+    }
+
+    /* Main Section */
+    .main-content {
+      padding: 50px 10%;
+      background-color: #EADDCA;
+    }
+    .main-content h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #000000;
+    }
+    .cards {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .card {
+      flex: 1;
+      padding: 30px;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .card h3 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #666666;
+    }
+    .card a {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #954535;
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .card a:hover {
+      background-color: #e0e0e0;
+    }
+
+    /* Button Styling */
+    .action-btn {
+      padding: 12px 20px;
+      background-color: #0074b8;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .action-btn:hover {
+      background-color: #000000;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 50px 10%;
+      background-color: #fff;
+    }
+    .about-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #000000;
+    }
+    .about-section p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #666666;
+    }
+
+    /* Leadership Section */
+    .leadership-section {
+      padding: 50px 10%;
+      background-color: #018aa4;
+    }
+    .leadership-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #FFFFFF;
+    }
+    .leadership-cards {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .leadership-card {
+      flex: 1;
+      padding: 30px;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .leadership-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .leadership-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+    .leadership-card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #666666;
+    }
+    .leadership-card[name="l2"] {
+    background-color: #2B1B17;
+  }
+
+    /* News Section */
+    .news-section {
+      padding: 50px 10%;
+      background-color: #FFFFFF;
+    }
+    .news-section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #000000;
+    }
+    .news-cards {
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+    .news-cards a {
+      color: #954535;
+    }
+    .news-cards a:hover {
+      color: #000000;
+    }
+    .news-card {
+      flex: 1;
+      padding: 30px;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+    .news-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #000000;
+    }
+    .news-card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #666666;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #2B1B17;
+      padding: 40px 10%;
+      color: white;
+      text-align: center;
+    }
+    .footer p {
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive Design */
+    @media(max-width: 1024px) {
+      .cards {
+        flex-direction: column;
+      }
+      .leadership-cards {
+        flex-direction: column;
+      }
+      .news-cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+  <script>
+    window.onload = function() {
+      document.querySelector('.menu-icon').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show-menu');
+      });
+    };
+  </script>  
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo"><a href="index.html">Hafzan Quantitative Systems</a></div>
+    <nav>
+      <div class="menu-icon">
+        <i class="fa fa-bars"></i>
+      </div>      
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7376580">SSRN Author's Page</a></li>
+        <li><a href="https://www.linkedin.com/in/amaanullah-bhatti/">LinkedIn</a></li>
+      </ul>
+  </nav>
+  
+  </header>
+
+  <!-- Hero Section -->
+  <section class="banner" style="padding: 20%; font-size: larger;">
+    <div>Welcome to the Hafzan Quantitative Systems — a curated collection of original financial models and formulas created by Amaanullah Bhatti (Hafzan Osmanoğlu). This site is designed to empower startup founders, venture capitalists, private equity professionals, and financial analysts with next-generation tools that bridge theory and practice.</div>
+  </section>
+
+  <!-- Main Content -->
+
+
+  
+<p style="background-color: #fff; color: white;">-</p>
+  <!-- Leadership Section -->
+  <section class="leadership-section">
+    <h2>Explore the tools below:</h2>
+    <div class="leadership-cards">
+      <!-- Leadership Card 1 -->
+      <a href="https://hafzan-technologies.github.io/HCAVM/"><div class="leadership-card">
+        <h3>Hafzan Composite Adaptive Valuation Model (HCAVM) Fair Value Estimator</h3>
+        <p>The Hafzan Composite Adaptive Valuation Model (HCAVM) is an advanced framework for estimating the fair value of startup shares in private and secondary markets. It combines traditional methods (like comparables and DCF) with modern enhancements including probability-weighted exits, real options theory, liquidity discounts, and market sentiment multipliers. Use this interactive calculator to explore how investor assumptions impact valuation in venture capital and private equity contexts.</p>
+      </div>
+      </a>
+    </div>
+  </br>
+</br>
+  </section>
+
+  <!-- News Section -->
+  <section class="news-section">
+    <h2>Connect With Me</h2>
+    <div class="news-cards">
+      <!-- News Card 1 -->
+      <div class="news-card">
+        <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=7376580"><h3>SSRN Author's Page</h3></a>
+      </div>
+      <!-- News Card 2 -->
+      <div class="news-card">
+        <a href="https://www.linkedin.com/in/amaanullah-bhatti/"><h3>LinkedIn</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call-to-Action Section -->
+  <section style="text-align: center; padding: 50px 10%; background-color: #FFFFFF;">
+    <h2></h2>
+    <p></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="background-color: #018aa4;">
+    <p>© 2025 Amaanullah Bhatti (Hafzan Osmanoğlu) | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
